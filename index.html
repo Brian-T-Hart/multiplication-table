@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Multiplication Table</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+	<div id="main-container">
+		<h1 class="title">Multiplication Table</h1>
+
+		<div class="message-container" id="message-container">
+			<p class="instructions" id="instructions">
+				<u>Instructions</u>: Fill in the boxes and click the submit button to check your answers.
+			</p>
+			<h2 class="score text-center" id="score"></h2>
+		</div>
+
+		<div class="column-headers flex-container">
+			<div class="header">1</div>
+			<div class="header">2</div>
+			<div class="header">3</div>
+			<div class="header">4</div>
+			<div class="header">5</div>
+			<div class="header">6</div>
+			<div class="header">7</div>
+			<div class="header">8</div>
+			<div class="header">9</div>
+			<div class="header">10</div>
+		</div>
+
+		<div class="flex-container">
+			<div class="row-headers">
+				<div class="header">1</div>
+				<div class="header">2</div>
+				<div class="header">3</div>
+				<div class="header">4</div>
+				<div class="header">5</div>
+				<div class="header">6</div>
+				<div class="header">7</div>
+				<div class="header">8</div>
+				<div class="header">9</div>
+				<div class="header">10</div>
+			</div>
+
+			<div class="boxes flex-container" id="boxes"></div>
+		</div>
+
+		<button class="button" id="submit-button" onclick="handleSubmit()">Submit</button>
+		<button class="button hidden" id="reset-button" onclick="reset()">Reset</button>
+	</div>
+
+<script src="index.js"></script>
+</body>
+</html>
