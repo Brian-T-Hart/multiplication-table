@@ -1,4 +1,6 @@
 var boxes = document.getElementById('boxes');
+var columnHeaders = document.getElementById('column-headers');
+var rowHeaders = document.getElementById('row-headers');
 var instructions = document.getElementById('instructions');
 var quizBtn = document.getElementById('quiz-button');
 var resetBtn = document.getElementById('reset-button');
@@ -7,10 +9,13 @@ var scoreElement = document.getElementById('score');
 var submitBtn = document.getElementById('submit-button');
 var score = 0;
 
-function createBoxes() {
-	for (var i = 1; i <= 10; i++) {
+function createBoxes(min, max) {
+	createColumnHeaders(min, max);
+	createRowHeaders(min, max);
 
-		for (var j = 1; j <=10; j++) {
+	for (let i = min; i <= max; i++) {
+
+		for (let j = min; j <= max; j++) {
 			var box = document.createElement('INPUT');
 			box.setAttribute('type', 'text');
 			var boxId = i + 'x' + j;
@@ -22,6 +27,24 @@ function createBoxes() {
 			boxes.append(box);
 		}
 
+	}
+}
+
+function createColumnHeaders(min, max) {
+	for (let i = min; i <= max; i++) {
+		var columnHeader = document.createElement('div');
+		columnHeader.classList.add('header');
+		columnHeader.innerText = i;
+		columnHeaders.append(columnHeader);
+	}
+}
+
+function createRowHeaders(min, max) {
+	for (let i = min; i <= max; i++) {
+		var rowHeader = document.createElement('div');
+		rowHeader.classList.add('header');
+		rowHeader.innerText = i;
+		rowHeaders.append(rowHeader);
 	}
 }
 
@@ -63,4 +86,4 @@ function reset() {
 	window.location.reload();
 }
 
-createBoxes();
+createBoxes(1,10);
