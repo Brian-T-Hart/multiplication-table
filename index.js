@@ -19,7 +19,7 @@ function createBoxes(min, max) {
 
 		for (let j = min; j <= max; j++) {
 			var box = document.createElement('INPUT');
-			box.setAttribute('type', 'text');
+			box.setAttribute('type', 'number');
 			var boxId = i + 'x' + j;
 			box.setAttribute('id', boxId);
 			var boxValue = i * j;
