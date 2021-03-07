@@ -74,6 +74,10 @@ input[type=number] {
 	display: none;
 }
 
+.highlight {
+	background-color: lightgray;
+}
+
 .message {
 	margin: 0;
 	padding: 0 15px;

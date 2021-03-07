@@ -25,7 +25,9 @@ function createBoxes(min, max) {
 			var boxValue = i * j;
 			box.setAttribute('value', boxValue);
 			box.setAttribute('data-value', boxValue);
-			box.classList.add('box');
+			box.className = `box row-${i} col-${j}`;
+			box.addEventListener('mouseenter', handleHighlight);
+			box.addEventListener('mouseleave', handleHighlight);
 			boxes.append(box);
 		}
 
@@ -36,6 +38,7 @@ function createBoxes(min, max) {
 function createColumnHeaders(min, max) {
 	for (let i = min; i <= max; i++) {
 		var columnHeader = document.createElement('div');
+		columnHeader.id = 'col-header-' + i;
 		columnHeader.classList.add('header');
 		columnHeader.innerText = i;
 		columnHeaders.append(columnHeader);
@@ -46,9 +49,49 @@ function createColumnHeaders(min, max) {
 function createRowHeaders(min, max) {
 	for (let i = min; i <= max; i++) {
 		var rowHeader = document.createElement('div');
+		rowHeader.id = 'row-header-' + i;
 		rowHeader.classList.add('header');
 		rowHeader.innerText = i;
 		rowHeaders.append(rowHeader);
+	}
+}
+
+
+function handleHighlight(e) {
+	var row = e.target.id.split('x')[0];
+	var col = e.target.id.split('x')[1];
+
+	var rowHeader = document.getElementById('row-header-' + row);
+	rowHeader.classList.contains('highlight') ? rowHeader.classList.remove('highlight') : rowHeader.classList.add('highlight');
+
+	var colHeader = document.getElementById('col-header-' + col);
+	colHeader.classList.contains('highlight') ? colHeader.classList.remove('highlight') : colHeader.classList.add('highlight');
+
+	// var rowBoxes = document.querySelectorAll('.row-' + row);
+
+	// for (let x = 0; x < rowBoxes.length; x++) {
+	// 	let boxCol = rowBoxes[x].id.split('x')[1];
+	// 	if (parseInt(boxCol) <= parseInt(col)) {
+	// 		rowBoxes[x].classList.contains('highlight') ? rowBoxes[x].classList.remove('highlight') : rowBoxes[x].classList.add('highlight');
+	// 	}
+	// }
+
+	// var colBoxes = document.querySelectorAll('.col-' + col);
+
+	// for (let y = 0; y < colBoxes.length; y++) {
+	// 	let boxRow = colBoxes[y].id.split('x')[0];
+	// 	if (parseInt(boxRow) <= parseInt(row)) {
+	// 		colBoxes[y].classList.contains('highlight') ? colBoxes[y].classList.remove('highlight') : colBoxes[y].classList.add('highlight');
+	// 	}
+	// }
+}
+
+
+function handleHighlightRemove() {
+	let highlighted = document.querySelectorAll('.highlight');
+
+	for (let i = 0; i < highlighted.length; i++) {
+		highlighted[i].classList.remove('highlight');
 	}
 }
 
