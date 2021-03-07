@@ -1,4 +1,6 @@
 var boxes = document.getElementById('boxes');
+var clock;
+var clockContainer = document.getElementById('timer-container');
 var columnHeaders = document.getElementById('column-headers');
 var rowHeaders = document.getElementById('row-headers');
 var instructions = document.getElementById('instructions');
@@ -28,7 +30,8 @@ function createBoxes(min, max) {
 		}
 
 	}
-}
+}// createBoxes
+
 
 function createColumnHeaders(min, max) {
 	for (let i = min; i <= max; i++) {
@@ -39,6 +42,7 @@ function createColumnHeaders(min, max) {
 	}
 }
 
+
 function createRowHeaders(min, max) {
 	for (let i = min; i <= max; i++) {
 		var rowHeader = document.createElement('div');
@@ -47,6 +51,7 @@ function createRowHeaders(min, max) {
 		rowHeaders.append(rowHeader);
 	}
 }
+
 
 function startQuiz() {
 	var emptyBoxes = document.querySelectorAll('input');
@@ -59,9 +64,15 @@ function startQuiz() {
 	instructions.classList.remove('hidden');
 	quizBtn.classList.add('hidden');
 	submitBtn.classList.remove('hidden');
+
+	startClock();
 }
 
+
 function submit() {
+	stopClock();
+	clockContainer.style.display = 'block';
+	
 	var answerElements = document.querySelectorAll('.box');
 	
 	for (var k = 0; k < answerElements.length; k++) {
@@ -79,7 +90,8 @@ function submit() {
 	submitBtn.classList.add('hidden');
 	resetBtn.classList.remove('hidden');
 	instructions.classList.add('hidden');
-	scoreElement.innerHTML = 'Score: ' + score + '%';
+	scoreElement.innerHTML = score + '%';
+
 }
 
 function reset() {
@@ -87,3 +99,43 @@ function reset() {
 }
 
 createBoxes(1,10);
+
+
+var time = 0;
+var timer = document.getElementById('timer');
+
+function startClock() {
+	clock = setInterval(function() {
+		time++;
+		// console.log(time);
+		var minutes = parseInt(time / 60);
+
+		if (minutes === 0) {
+			minutes = '';
+		}
+
+		else if (minutes === 1) {
+			minutes = minutes + ' minute ';
+		}
+
+		else {
+			minutes = minutes + ' minutes ';
+		}
+
+		var seconds = time % 60;
+
+		if (seconds === 1) {
+			seconds = seconds + ' second';
+		}
+
+		else {
+			seconds = seconds + ' seconds';
+		}
+
+		timer.innerText = minutes + seconds;
+	}, 1000);
+}
+
+function stopClock() {
+	clearInterval(clock);
+}

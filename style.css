@@ -28,7 +28,7 @@ body {
 	color: #008000;
 	font-size: 20px;
 	letter-spacing: 1px;
-	margin: 40px;
+	margin: 30px;
 }
 
 .column-headers {
@@ -57,19 +57,19 @@ body {
 	background-color: green;
 }
 
-.message-container {
-	width: 300px;
-	height: 64px;
-}
-
 .red {
 	background-color: red;
 }
 
 .message {
-	font-style: italic;
 	margin: 0;
 	padding: 0 15px;
+}
+
+.message-container {
+	height: 64px;
+	margin-top: 20px;
+	width: 300px;
 }
 
 .text-center {
@@ -79,5 +79,10 @@ body {
 .title {
 	color: #008000;
 	margin: 0;
-	padding: 25px;
+	padding-top: 25px;
+}
+
+#score {
+	margin-bottom: 5px;
+	margin-top: -5px;
 }
