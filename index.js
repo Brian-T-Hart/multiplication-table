@@ -115,6 +115,8 @@ function startQuiz() {
 	quizBtn.classList.add('hidden');
 	submitBtn.classList.remove('hidden');
 
+	document.querySelector('.box').focus();
+
 	startClock();
 }
 
