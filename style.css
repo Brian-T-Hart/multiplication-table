@@ -33,9 +33,9 @@ input[type=number] {
 
 .box {
 	font-size: 16px;
-	height: 30px;
+	height: 32px;
 	text-align: center;
-	width: 30px;
+	width: 32px;
 }
 
 .box:focus {
@@ -44,7 +44,7 @@ input[type=number] {
 }
 
 .boxes {
-	width: 300px;
+	width: 320px;
 }
 
 .button {
@@ -55,7 +55,7 @@ input[type=number] {
 }
 
 .column-headers {
-	width: 330px;
+	width: 360px;
 }
 
 .flex-container {
@@ -71,10 +71,10 @@ input[type=number] {
 	align-items: center;
 	display: flex;
 	font-size: 16px;
-	height: 30px;
+	height: 32px;
 	justify-content: center;
 	text-align: center;
-	width: 30px;
+	width: 32px;
 }
 
 .hidden {
