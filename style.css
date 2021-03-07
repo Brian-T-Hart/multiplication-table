@@ -32,9 +32,15 @@ input[type=number] {
 }
 
 .box {
-	text-align: center;
+	font-size: 16px;
 	height: 30px;
+	text-align: center;
 	width: 30px;
+}
+
+.box:focus {
+	background-color: green;
+	color: white;
 }
 
 .boxes {
@@ -64,6 +70,7 @@ input[type=number] {
 .header {
 	align-items: center;
 	display: flex;
+	font-size: 16px;
 	height: 30px;
 	justify-content: center;
 	text-align: center;
@@ -101,4 +108,8 @@ input[type=number] {
 	color: #008000;
 	margin: 0;
 	padding-top: 25px;
+}
+
+::selection {
+	background-color: transparent;
 }
